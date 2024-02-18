@@ -6,10 +6,26 @@ public class VehicleManager {
 	
 	
 	//Fields
+	private static VehicleManager instance;
 	private final static String inventoryFilePath = "files/vehicleList.csv";
 	ArrayList<Vehicle> vehicleList = new ArrayList<>();
 	
+	private VehicleManager() {
+		//private method to prevent outside instantiation
+	}
 	
+	
+	//Static method to provide access to the single instance
+	 public static VehicleManager getInstance() {
+	 
+	 	//create instance if it doesn't exist
+	 	if (instance == null){
+	 		instance = new VehicleManager();
+	 	}
+	 	
+	 	return instance;
+	 	}
+
 	
 	
 	public boolean initializeStock() {
