@@ -13,7 +13,7 @@ public abstract class Vehicle {
 	protected double mass;
 	protected int cylinders;
 	protected double gasTankCapacity;
-	protected double mass;
+
 	
 	protected VehicleColor color;
 	protected FuelType fuelType;
