@@ -1,11 +1,11 @@
 package hw4;
+import java.time.Year;
 
 public abstract class Vehicle {
 	
 	protected String brand;
 	protected String make;
-	
-	protected long currentYear;
+
 	
 	protected long modelYear;
 	protected double price;
@@ -18,6 +18,10 @@ public abstract class Vehicle {
 	protected VehicleColor color;
 	protected FuelType fuelType;
 	protected StartMechanism startType;
+	
+	
+	public static long currentYear = Year.now().getLong(null);
+	
 	
 
 	
