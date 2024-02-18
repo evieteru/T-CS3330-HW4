@@ -90,6 +90,35 @@ public class VehicleManager {
 	
 	
 	
+	public boolean saveVehicleList() {
+		
+		try {
+			FileWriter writer = new FileWriter(inventoryFilePath);
+		
+		
+			writer.write("Type,Brand,Make,ModelYear,Price,Color,FuelType,Mileage,Mass,Cylinders,GasTankCapacity,StartType\n");
+			
+			
+			for(Vehicle vehicle : vehicleList) {
+				
+				String data = vehicle.toCSVString() + "\n";
+				writer.write(data);
+				
+			}
+			
+			writer.close();
+			return true;
+	    }
+		
+	  catch (IOException e) {
+		e.printStackTrace();
+		return false;
+	}
+	
+	}
+	
+	
+	
 	
 	
 	
@@ -148,9 +177,6 @@ public class VehicleManager {
 		
 	}
 	
-	public boolean saveVehicleList(){
-			
-		}
 	
 	
 	private boolean isVehicleType(Vehicle v, Class clazz) {

@@ -17,6 +17,13 @@ public class SUV extends Vehicle {
 				+ gasTankCapacity + ", mass=" + mass + ", color=" + color + ", fuelType=" + fuelType + ", startType="
 				+ startType + "]";
 	}
+	
+	@Override
+    public String toCSVString() {
+        return String.format("SUV,%s,%s,%d,%.2f,%s,%s,%.2f,%.2f,%d,%.2f,%s",
+                getBrand(), getMake(), getModelYear(), getPrice(), getColor(), getFuelType(), 
+                getMileage(), getMass(), getCylinders(), getGasTankCapacity(), getStartType());
+    }
 
 	@Override
 	public double calculateMaintenanceCost(double distance) {
