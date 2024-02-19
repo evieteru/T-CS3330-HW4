@@ -8,6 +8,7 @@ public abstract class Vehicle {
 	protected long modelYear;
 	protected double price;
 	protected double mileage;
+	protected double mass;
 	protected int cylinders;
 	protected double gasTankCapacity;
 	
