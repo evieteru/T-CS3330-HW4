@@ -217,44 +217,66 @@ public class VehicleManager {
 		
 	}
 	
-	public Vehicle getVehicleWithHighestMaintenanceCost(double
-		distance) {
+	
+	
+	
+	
+	
+	/**
+	 * Calculate the maintenance cost for each vehicle in the vehicle list and return the vehicle with the highest maintenance cost.
+	 * If multiple vehicles have the same maintenance cost, randomly return one of the vehicles (Use the Random class for random selection).
+	 * @param distance
+	 * @return Vehicle
+	 */
+	public Vehicle getVehicleWithHighestMaintenanceCost(double distance) {
 		
 	}
 	
-	
-	public Vehicle getVehicleWithLowestMaintenanceCost(double
-		distance){
+	/**
+	 * Calculate the maintenance cost for each vehicle in the vehicle list and return the vehicle with the lowest maintenance cost.
+	 * If multiple vehicles have the same maintenance cost, randomly return one of the vehicles (Use the Random class for random selection).
+	 * @param distance
+	 * @return Vehicle
+	 */
+	public Vehicle getVehicleWithLowestMaintenanceCost(double distance){
 			
-		}
-	
-	
-	
-	
-	
+	}	
 	
 	
 	
 	//Fuel Efficiency
-	public ArrayList<Vehicle>
-		getVehicleWithHighestFuelEfficiency(double distance, double
-		fuelPrice){
+	/**
+	 * Calculate the fuel efficiencies for each vehicle in the vehicle list and return the vehicle with the highest fuel efficiency.
+	 * If multiple vehicles have same maintenance cost, return all vehicles with same highest efficiency in ArrayList
+	 * @param distance - double
+	 * @param fuelPrice - double
+	 * @return ArrayList<Vehicle>
+	 */
+	public ArrayList<Vehicle> getVehicleWithHighestFuelEfficiency(double distance, double fuelPrice){
 			
-		}
+	}
 	
-	
-	public ArrayList<Vehicle>
-		getVehicleWithLowestFuelEfficiency(double distance, double
-		fuelPrice){
+	/**
+	 * Calculate the fuel efficiencies for each vehicle in the vehicle list and return the vehicle with the lowest fuel efficiency.
+	 * If multiple vehicles have same maintenance cost, return all vehicles with same lowest efficiency in ArrayList
+	 * @param distance - double
+	 * @param fuelPrice - double
+	 * @return ArrayList<Vehicle>
+	 */
+	public ArrayList<Vehicle> getVehicleWithLowestFuelEfficiency(double distance, double fuelPrice){
 			
-		}
+	}
 	
-	
-
-	public double getAverageFuelEfficiencyOfSUVs(double distance,
-		double fuelPrice) {
+	/**
+	 * Calculate the average/mean of the fuel efficiency of SUVs in the vehicle list. Use the isVehicleType(Vehicle v, Class clazz) method.
+	 * If no SUVs exist in the list return -1.0 as an error code.
+	 * @param distance
+	 * @param fuelPrice
+	 * @return
+	 */
+	public double getAverageFuelEfficiencyOfSUVs(double distance, double fuelPrice) {
 			
-		}
+	}
 		
 
 }
