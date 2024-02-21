@@ -10,6 +10,10 @@ public class VehicleManager {
 	private final static String inventoryFilePath = "files/vehicleList.csv";
 	ArrayList<Vehicle> vehicleList = new ArrayList<>();
 	
+	//Pass as inputs into calculateMaintennanceCost & calculateFuelEfficiency
+	private final static double distance = 300;
+	private final static double fuelPrice = 3.25; 
+	
 	private VehicleManager() {
 		//private method to prevent outside instantiation
 	}
