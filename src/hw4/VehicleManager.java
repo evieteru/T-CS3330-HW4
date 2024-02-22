@@ -149,8 +149,11 @@ public class VehicleManager {
 	
 	//Displays
 	public void displayAllCarInformation() {
-		
-		
+		for (Vehicle vehicle : vehicleList) {
+			if (Vehicle instanceof Car) {
+				System.out.println(vehicle);
+			}
+		}
 	}
 	
 	

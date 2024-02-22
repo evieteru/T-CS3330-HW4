@@ -51,6 +51,10 @@ public class Main {
 		avgSuvFuelEfficiency = testManager.getAverageFuelEfficiencyOfSUVs(100, 2);
 		System.out.println("Avg SUV Fuel Efficiency = " + avgSuvFuelEfficiency);
 		
+		// Test all display functions
+		System.out.println("\n\nPrinting all cars:");
+		testManager.displayAllCarInformation();
+		
 	}
 
 }
