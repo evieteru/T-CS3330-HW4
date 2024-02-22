@@ -26,20 +26,20 @@ public class Main {
 		
 		// Test maintenance-cost related functions
 		Vehicle highestCost = testManager.getVehicleWithHighestMaintenanceCost(100.0);
-		System.out.println("\nVehicle with highest cost:\n" + highestCost.toString());
+		System.out.println("\nVehicle with highest cost:" + highestCost.toString());
 	
 		Vehicle lowestCost = testManager.getVehicleWithLowestMaintenanceCost(100.0);
-		System.out.println("\nVehicle with lowest cost:\n" + lowestCost.toString());
+		System.out.println("\nVehicle with lowest cost:" + lowestCost.toString());
 		
 		// Test fuel-efficiency related functions
-		System.out.println("\nVehicles with highest fuel efficiencies\n");
+		System.out.println("\nVehicles with highest fuel efficiencies");
 		ArrayList<Vehicle> highestFuelEfficiencies = new ArrayList<Vehicle>();
 		highestFuelEfficiencies = testManager.getVehicleWithHighestFuelEfficiency(100, 2);
 		for (Vehicle vehicle : highestFuelEfficiencies) {
 			System.out.println(vehicle.toString());
 		}
 		
-		System.out.println("\nVehicles with lowest fuel efficiencies\n");
+		System.out.println("\nVehicles with lowest fuel efficiencies");
 		ArrayList<Vehicle> lowestFuelEfficiencies = new ArrayList<Vehicle>();
 		lowestFuelEfficiencies = testManager.getVehicleWithLowestFuelEfficiency(100, 2);
 		for (Vehicle vehicle : lowestFuelEfficiencies) {
