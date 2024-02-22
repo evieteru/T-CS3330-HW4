@@ -1,5 +1,7 @@
 package hw4;
 
+import java.util.ArrayList;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -23,30 +25,30 @@ public class Main {
 		
 		
 		// Test maintenance-cost related functions
-		Vehicle highestCost = getVehicleWithHighestMaintenanceCost(100.0);
+		Vehicle highestCost = testManager.getVehicleWithHighestMaintenanceCost(100.0);
 		System.out.println("\nVehicle with highest cost:\n" + highestCost.toString());
 	
-		Vehicle lowestCost = getVehicleWithLowestMaintenanceCost(100.0);
+		Vehicle lowestCost = testManager.getVehicleWithLowestMaintenanceCost(100.0);
 		System.out.println("\nVehicle with lowest cost:\n" + lowestCost.toString());
 		
 		// Test fuel-efficiency related functions
-		System.out.println("\nVehicles with highest fuel efficiencies\n")
+		System.out.println("\nVehicles with highest fuel efficiencies\n");
 		ArrayList<Vehicle> highestFuelEfficiencies = new ArrayList<Vehicle>();
-		highestFuelEfficiencies = getVehicleWithHighestFuelEfficiency(100, 2);
+		highestFuelEfficiencies = testManager.getVehicleWithHighestFuelEfficiency(100, 2);
 		for (Vehicle vehicle : highestFuelEfficiencies) {
-			System.println(vehicle.toString());
+			System.out.println(vehicle.toString());
 		}
 		
-		System.out.println("\nVehicles with highest fuel efficiencies\n")
+		System.out.println("\nVehicles with highest fuel efficiencies\n");
 		ArrayList<Vehicle> lowestFuelEfficiencies = new ArrayList<Vehicle>();
-		lowestFuelEfficiencies = getVehicleWithLowestFuelEfficiency(100, 2);
+		lowestFuelEfficiencies = testManager.getVehicleWithLowestFuelEfficiency(100, 2);
 		for (Vehicle vehicle : lowestFuelEfficiencies) {
-			System.println(vehicle.toString());
+			System.out.println(vehicle.toString());
 		}
 		
 	
 		double avgSuvFuelEfficiency;
-		avgSuvFuelEfficiency = getAverageFuelEfficiencyOfSUVs(100, 2);
+		avgSuvFuelEfficiency = testManager.getAverageFuelEfficiencyOfSUVs(100, 2);
 		System.out.println("Avg SUV Fuel Efficiency = " + avgSuvFuelEfficiency);
 		
 	}

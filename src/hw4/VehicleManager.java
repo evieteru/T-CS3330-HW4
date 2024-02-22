@@ -192,19 +192,23 @@ public class VehicleManager {
 	//General
 	
 	public boolean removeVehicle(Vehicle vehicle) {
+		// Do something
+		return false;
 		
 	}
 	
 	
 	public boolean addVehicle(Vehicle vehicle) {
-		
+		// Do something
+		return false;	
 	}
 	
 	
 	
 	private boolean isVehicleType(Vehicle v, Class clazz) {
-			
-		}
+		// Do something
+		return false;
+	}
 	
 	
 	
@@ -214,7 +218,8 @@ public class VehicleManager {
 	
 	//Vehicle Search
 	public int getNumberOfVehichlesByType(Class clazz){
-		
+		// Do something
+		return -1;
 	}
 	
 	
@@ -251,6 +256,7 @@ public class VehicleManager {
 			return vehicleWithHighestCost;
 		}
 		else { // Return random vehicle in list of Vehicles with same highestCost
+			Random randomNum = new Random(); // Create random instance			
 			int randomIndex = randomNum.nextInt(duplicates.size());
 			return duplicates.get(randomIndex);
 		}
@@ -267,7 +273,7 @@ public class VehicleManager {
 		double maintenanceCost;
 		
 		Vehicle vehicleWithLowestCost = vehicleList.get(0);
-		double lowestCost = vehicleWithHighestCost.calculateMaintenanceCost(distance);
+		double lowestCost = vehicleWithLowestCost.calculateMaintenanceCost(distance);
 		
 		for (Vehicle vehicle : vehicleList) {
 			maintenanceCost = vehicle.calculateMaintenanceCost(distance);
@@ -285,6 +291,7 @@ public class VehicleManager {
 			return vehicleWithLowestCost;
 		}
 		else { // Return random vehicle in list of Vehicles with same lowestCost
+			Random randomNum = new Random(); // Create random instance
 			int randomIndex = randomNum.nextInt(duplicates.size());
 			return duplicates.get(randomIndex);
 		}			
@@ -303,7 +310,7 @@ public class VehicleManager {
 	public ArrayList<Vehicle> getVehicleWithHighestFuelEfficiency(double distance, double fuelPrice){
 		ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 		double fuelEfficiency;
-		double highestEfficiency;
+		double highestEfficiency = vehicleList.get(0).calculateFuelEfficiency(distance, fuelPrice);
 		
 		for (Vehicle vehicle : vehicleList) {
 			fuelEfficiency = vehicle.calculateFuelEfficiency(distance, fuelPrice);
@@ -329,12 +336,12 @@ public class VehicleManager {
 	public ArrayList<Vehicle> getVehicleWithLowestFuelEfficiency(double distance, double fuelPrice){
 		ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 		double fuelEfficiency;
-		double lowestEfficiency;
+		double lowestEfficiency = vehicleList.get(0).calculateFuelEfficiency(distance, fuelPrice);
 		
 		for (Vehicle vehicle : vehicleList) {
 			fuelEfficiency = vehicle.calculateFuelEfficiency(distance, fuelPrice);
 			if (fuelEfficiency < lowestEfficiency) {
-				lowestCost = fuelEfficiency;
+				lowestEfficiency = fuelEfficiency;
 				vehicles.clear(); // New lowestEfficiency founded, so clear old arrayList
 				vehicles.add(vehicle);
 			}
@@ -354,12 +361,11 @@ public class VehicleManager {
 	 */
 	public double getAverageFuelEfficiencyOfSUVs(double distance, double fuelPrice) {
 		ArrayList<SUV> suvs = new ArrayList<SUV>();
-		SUV suv = new SUV();
-		double totalFuelEfficiency;
+		double totalFuelEfficiency = 0.0;
 		double avgFuelEfficiency;
 		for (Vehicle vehicle : vehicleList) {
-			if (isVehicleType(vehicle, suv)) {
-				suvs.add(vehicle);
+			if (isVehicleType(vehicle, SUV.class)) {
+				suvs.add((SUV)vehicle);
 				totalFuelEfficiency += vehicle.calculateFuelEfficiency(distance, fuelPrice);
 			}
 		}
