@@ -15,8 +15,8 @@ public class Main {
 		save = testManager.saveVehicleList();
 		
 		if (initialize == true && save == true) {
-			System.out.println("Initialized and saved successfully"); 
-			//print array here
+			System.out.println("Initialized and saved successfully. Here is the complete data: "); 
+			testManager.displayAllVehicleInformation();
 		}
 		else {
 			System.out.println("Something went wrong, check the file path or its data");

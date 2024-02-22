@@ -1,5 +1,6 @@
 package hw4;
-import java.time.Year;
+import java.time.LocalDate;
+
 
 public abstract class Vehicle {
 
@@ -20,7 +21,7 @@ public abstract class Vehicle {
 	protected StartMechanism startType;
 
 
-	public static long currentYear = Year.now().getLong(null);
+	public static long currentYear = LocalDate.now().getYear();;
 
 
 
