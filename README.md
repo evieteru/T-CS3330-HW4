@@ -7,3 +7,11 @@ The purpose of this project was to practice reading in data from a csv file, cre
 
 Credits: Evie Wilbur, Thomas Quan, Wen-Hsin Chen, Alyssa Schaefer
 Date: 2/19 - 2/24 2024
+
+Indivual Contributions:
+Evie Wilbur: Created all starter files and implemented InitializeStock, and saveVehicleList methods
+Thomas Quan: Implemented removeVehicle, addVehicle, isVehicleType, & getNumberOfVehiclesByType methods
+Wen-Hsin Chen: Implemented getVehicleWithHighestFuelEfficiency, getVehicleWithLowestFuelEfficiency, getAverageFuelEffienciencyOfSUVs, getVehicleWithHighestMaintenanceCost, & getVehicleWithLowestMaintenanceCost methods
+Alyssa Schaefer: Implemented displayAllCarInformation, displayAllTruckInformation, displayAllMotorBikeInformation, displayAllSUVInformation, displayAllVehicleInformation, & displayVehicleInformation methods and wrote README file
+
+-> We all wrote tests for functions we implemented as well. 
