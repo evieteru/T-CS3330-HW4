@@ -307,7 +307,7 @@ public class VehicleManager {
 		
 		for (Vehicle vehicle : vehicleList) {
 			fuelEfficiency = vehicle.calculateFuelEfficiency(distance, fuelPrice);
-			if (fuelEfficiency > highestCost) {
+			if (fuelEfficiency > highestEfficiency) {
 				highestEfficiency = fuelEfficiency;
 				vehicles.clear(); // New highestEfficiency founded, so clear old arrayList
 				vehicles.add(vehicle);
@@ -353,7 +353,23 @@ public class VehicleManager {
 	 * @return double, -1.0 if no SUVs in list
 	 */
 	public double getAverageFuelEfficiencyOfSUVs(double distance, double fuelPrice) {
-		double 
+		ArrayList<SUV> suvs = new ArrayList<SUV>();
+		SUV suv = new SUV();
+		double totalFuelEfficiency;
+		double avgFuelEfficiency;
+		for (Vehicle vehicle : vehicleList) {
+			if (isVehicleType(vehicle, suv)) {
+				suvs.add(vehicle);
+				totalFuelEfficiency += vehicle.calculateFuelEfficiency(distance, fuelPrice);
+			}
+		}
+		if (suvs.isEmpty()) {
+			return -1.0; // Error code
+		}
+		else {
+			avgFuelEfficiency = totalFuelEfficiency / suvs.size();
+			return avgFuelEfficiency;
+		}
 	}
 		
 
