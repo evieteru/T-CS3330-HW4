@@ -147,37 +147,82 @@ public class VehicleManager {
 	
 	
 	
-	//Displays
+	//Display all Cars or error message if none
 	public void displayAllCarInformation() {
+		boolean carFound = false;
 		for (Vehicle vehicle : vehicleList) {
-			if (Vehicle instanceof Car) {
-				System.out.println(vehicle);
+			if (vehicle instanceof Car) {
+				System.out.println(vehicle.toString());
+				carFound = true;
 			}
+		}
+		if (!carFound) {
+			System.out.println("No cars are in the Vehicle Manager.");
 		}
 	}
 	
-	
+	//Display all Trucks or error message if none
 	public void displayAllTruckInformation() {
-		
+		boolean truckFound = false;
+		for (Vehicle vehicle : vehicleList) {
+			if (vehicle instanceof Truck) {
+				System.out.println(vehicle.toString());
+				truckFound = true;
+			}
+		}
+		if (!truckFound) {
+			System.out.println("No trucks are in the Vehicle Manager.");
+		}
 	}
 	
+	//Display all SUVs or error message if none
 	public void displayAllSUVInformation() {
-		
+		boolean suvFound = false;
+		for (Vehicle vehicle : vehicleList) {
+			if (vehicle instanceof SUV) {
+				System.out.println(vehicle.toString());
+				suvFound = true;
+			}
+		}
+		if (!suvFound) {
+			System.out.println("No SUVs are in the Vehicle Manager.");
+		}
 	}
 	
-	
+	//Display all Motor Bikes or error message if none
 	public void displayAllMotorBikeInformation() {
-		
+		boolean motorBikeFound = false;
+		for (Vehicle vehicle : vehicleList) {
+			if (vehicle instanceof MotorBike) {
+				System.out.println(vehicle.toString());
+				motorBikeFound = true;
+			}
+		}
+		if (!motorBikeFound) {
+			System.out.println("No motorbikes are in the Vehicle Manager.");
+		}
 	}
 	
-	
+	// Display one vehicle's information
 	public void displayVehicleInformation(Vehicle v) {
-		
+		try {
+			System.out.println("\nVehicle information: ");
+			System.out.println(v.toString());
+		} catch(Exception e) {
+			System.out.println("Invalid vehicle; Cannot print information.");
+		}
 	}
 	
-	
+	// Display all vehicle information in vehicleList array or error message if it is empty
 	public void displayAllVehicleInformation() {
-		
+		if (vehicleList.isEmpty()) {
+			System.out.println("No vehicles are in the Vehicle Manager.");
+		}
+		else {
+			for (Vehicle vehicle : vehicleList) {
+				System.out.println(vehicle.toString());
+			}
+		}
 	}
 	
 	
