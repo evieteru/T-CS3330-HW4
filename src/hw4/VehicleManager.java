@@ -301,7 +301,22 @@ public class VehicleManager {
 	 * @return ArrayList<Vehicle>
 	 */
 	public ArrayList<Vehicle> getVehicleWithHighestFuelEfficiency(double distance, double fuelPrice){
-			
+		ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
+		double maintenanceCost;
+		double highestCost;
+		
+		for (Vehicle vehicle : vehicleList) {
+			maintenanceCost = vehicle.calculateMaintenanceCost(distance);
+			if (maintenanceCost < highestCost) {
+				highestCost = maintenanceCost;
+				vehicles.clear(); // New lowestCost founded, so clear old arrayList
+				vehicles.add(vehicle);
+			}
+			else if (maintenanceCost == highestCost) {
+				vehicles.add(vehicle);
+			}
+		}
+		return vehicles;			
 	}
 	
 	/**
