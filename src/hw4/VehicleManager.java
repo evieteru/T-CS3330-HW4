@@ -307,9 +307,9 @@ public class VehicleManager {
 		
 		for (Vehicle vehicle : vehicleList) {
 			maintenanceCost = vehicle.calculateMaintenanceCost(distance);
-			if (maintenanceCost < highestCost) {
+			if (maintenanceCost > highestCost) {
 				highestCost = maintenanceCost;
-				vehicles.clear(); // New lowestCost founded, so clear old arrayList
+				vehicles.clear(); // New highestCost founded, so clear old arrayList
 				vehicles.add(vehicle);
 			}
 			else if (maintenanceCost == highestCost) {
@@ -327,7 +327,22 @@ public class VehicleManager {
 	 * @return ArrayList<Vehicle>
 	 */
 	public ArrayList<Vehicle> getVehicleWithLowestFuelEfficiency(double distance, double fuelPrice){
-			
+		ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
+		double maintenanceCost;
+		double lowestCost;
+		
+		for (Vehicle vehicle : vehicleList) {
+			maintenanceCost = vehicle.calculateMaintenanceCost(distance);
+			if (maintenanceCost < lowestCost) {
+				lowestCost = maintenanceCost;
+				vehicles.clear(); // New lowestCost founded, so clear old arrayList
+				vehicles.add(vehicle);
+			}
+			else if (maintenanceCost == lowestCost) {
+				vehicles.add(vehicle);
+			}
+		}
+		return vehicles;			
 	}
 	
 	/**
