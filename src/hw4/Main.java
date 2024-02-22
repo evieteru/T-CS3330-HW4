@@ -39,7 +39,7 @@ public class Main {
 			System.out.println(vehicle.toString());
 		}
 		
-		System.out.println("\nVehicles with highest fuel efficiencies\n");
+		System.out.println("\nVehicles with lowest fuel efficiencies\n");
 		ArrayList<Vehicle> lowestFuelEfficiencies = new ArrayList<Vehicle>();
 		lowestFuelEfficiencies = testManager.getVehicleWithLowestFuelEfficiency(100, 2);
 		for (Vehicle vehicle : lowestFuelEfficiencies) {
