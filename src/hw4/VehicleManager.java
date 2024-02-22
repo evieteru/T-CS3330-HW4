@@ -302,17 +302,17 @@ public class VehicleManager {
 	 */
 	public ArrayList<Vehicle> getVehicleWithHighestFuelEfficiency(double distance, double fuelPrice){
 		ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
-		double maintenanceCost;
-		double highestCost;
+		double fuelEfficiency;
+		double highestEfficiency;
 		
 		for (Vehicle vehicle : vehicleList) {
-			maintenanceCost = vehicle.calculateMaintenanceCost(distance);
-			if (maintenanceCost > highestCost) {
-				highestCost = maintenanceCost;
-				vehicles.clear(); // New highestCost founded, so clear old arrayList
+			fuelEfficiency = vehicle.calculateFuelEfficiency(distance, fuelPrice);
+			if (fuelEfficiency > highestCost) {
+				highestEfficiency = fuelEfficiency;
+				vehicles.clear(); // New highestEfficiency founded, so clear old arrayList
 				vehicles.add(vehicle);
 			}
-			else if (maintenanceCost == highestCost) {
+			else if (fuelEfficiency == highestEfficiency) { // Add duplicates to vehicles list
 				vehicles.add(vehicle);
 			}
 		}
@@ -328,17 +328,17 @@ public class VehicleManager {
 	 */
 	public ArrayList<Vehicle> getVehicleWithLowestFuelEfficiency(double distance, double fuelPrice){
 		ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
-		double maintenanceCost;
-		double lowestCost;
+		double fuelEfficiency;
+		double lowestEfficiency;
 		
 		for (Vehicle vehicle : vehicleList) {
-			maintenanceCost = vehicle.calculateMaintenanceCost(distance);
-			if (maintenanceCost < lowestCost) {
-				lowestCost = maintenanceCost;
-				vehicles.clear(); // New lowestCost founded, so clear old arrayList
+			fuelEfficiency = vehicle.calculateFuelEfficiency(distance, fuelPrice);
+			if (fuelEfficiency < lowestEfficiency) {
+				lowestCost = fuelEfficiency;
+				vehicles.clear(); // New lowestEfficiency founded, so clear old arrayList
 				vehicles.add(vehicle);
 			}
-			else if (maintenanceCost == lowestCost) {
+			else if (fuelEfficiency == lowestEfficiency) { // Add duplicates to vehicles list
 				vehicles.add(vehicle);
 			}
 		}
@@ -350,10 +350,10 @@ public class VehicleManager {
 	 * If no SUVs exist in the list return -1.0 as an error code.
 	 * @param distance
 	 * @param fuelPrice
-	 * @return
+	 * @return double, -1.0 if no SUVs in list
 	 */
 	public double getAverageFuelEfficiencyOfSUVs(double distance, double fuelPrice) {
-			
+		double 
 	}
 		
 
