@@ -1,3 +1,6 @@
+/*
+ * Sources used: https://beginnersbook.com/2013/12/how-to-empty-an-arraylist-in-java/
+ */
 package hw4;
 import java.util.*;
 import java.io.*;
@@ -10,7 +13,7 @@ public class VehicleManager {
 	private final static String inventoryFilePath = "files/vehicleList.csv";
 	ArrayList<Vehicle> vehicleList = new ArrayList<>();
 	
-	//Pass as inputs into calculateMaintennanceCost & calculateFuelEfficiency
+	//Pass as inputs into calculateMaintenanceCost & calculateFuelEfficiency
 	private final static double distance = 300;
 	private final static double fuelPrice = 3.25; 
 	
@@ -209,13 +212,6 @@ public class VehicleManager {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
 	//Vehicle Search
 	public int getNumberOfVehichlesByType(Class clazz){
 		
@@ -233,7 +229,31 @@ public class VehicleManager {
 	 * @return Vehicle
 	 */
 	public Vehicle getVehicleWithHighestMaintenanceCost(double distance) {
+		ArrayList<Vehicle> duplicates = new ArrayList<Vehicle>();
+		double maintenanceCost;
 		
+		Vehicle vehicleWithHighestCost = vehicleList.get(0);
+		double highestCost = vehicleWithHighestCost.calculateMaintenanceCost(distance);
+		
+		for (Vehicle vehicle : vehicleList) {
+			maintenanceCost = vehicle.calculateMaintenanceCost(distance);
+			if (maintenanceCost > highestCost) {
+				highestCost = maintenanceCost;
+				vehicleWithHighestCost = vehicle;
+				duplicates.clear(); // New highestCost founded, so clear old arrayList
+			}
+			else if (maintenanceCost == highestCost) {
+				duplicates.add(vehicle);
+			}
+		}
+		
+		if (duplicates.isEmpty()) { // Means only 1 Vehicle with highestCost
+			return vehicleWithHighestCost;
+		}
+		else { // Return random vehicle in list of Vehicles with same highestCost
+			int randomIndex = randomNum.nextInt(duplicates.size());
+			return duplicates.get(randomIndex);
+		}
 	}
 	
 	/**
