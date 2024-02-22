@@ -22,13 +22,32 @@ public class Main {
 		}
 		
 		
-		// Test for maintenance cost-related functions
+		// Test maintenance-cost related functions
 		Vehicle highestCost = getVehicleWithHighestMaintenanceCost(100.0);
 		System.out.println("\nVehicle with highest cost:\n" + highestCost.toString());
 	
 		Vehicle lowestCost = getVehicleWithLowestMaintenanceCost(100.0);
 		System.out.println("\nVehicle with lowest cost:\n" + lowestCost.toString());
 		
+		// Test fuel-efficiency related functions
+		System.out.println("\nVehicles with highest fuel efficiencies\n")
+		ArrayList<Vehicle> highestFuelEfficiencies = new ArrayList<Vehicle>();
+		highestFuelEfficiencies = getVehicleWithHighestFuelEfficiency(100, 2);
+		for (Vehicle vehicle : highestFuelEfficiencies) {
+			System.println(vehicle.toString());
+		}
+		
+		System.out.println("\nVehicles with highest fuel efficiencies\n")
+		ArrayList<Vehicle> lowestFuelEfficiencies = new ArrayList<Vehicle>();
+		lowestFuelEfficiencies = getVehicleWithLowestFuelEfficiency(100, 2);
+		for (Vehicle vehicle : lowestFuelEfficiencies) {
+			System.println(vehicle.toString());
+		}
+		
+	
+		double avgSuvFuelEfficiency;
+		avgSuvFuelEfficiency = getAverageFuelEfficiencyOfSUVs(100, 2);
+		System.out.println("Avg SUV Fuel Efficiency = " + avgSuvFuelEfficiency);
 		
 	}
 
