@@ -229,27 +229,23 @@ public class VehicleManager {
 	//General
 	
 	public boolean removeVehicle(Vehicle vehicle) { // Similar to the last assignment
-		return vehicleList.remove(vehicle);
+		for(Vehicle v : vehicleList) {
+			if(v.equals(vehicle)) {
+				vehicleList.remove(vehicle);
+				return true;
+			}
+			
+		}
+		return false;
 		
 	}
 	
 	
-	public boolean addVehicle(Vehicle vehicle) { //Easy pie
+	public boolean addVehicle(Vehicle vehicle) { 
 		return vehicleList.add(vehicle);
 	}
 
-	public boolean saveVehicleList() {
-        	try (FileWriter writer = new FileWriter(inventoryFilePath, false)) {
-            		writer.write("Type,Brand,Make,ModelYear,Price,Color,FuelType,Mileage,Mass,Cylinders,GasTankCapacity,StartType\n");
-            	for (Vehicle vehicle : vehicleList) {
-                	writer.write(vehicle.toCSVString() + "\n");
-            	}
-            		return true;
-        	} catch (IOException e) {
-            		e.printStackTrace();
-            		return false;
-        	}
-    	}
+	
 	
 	
 	

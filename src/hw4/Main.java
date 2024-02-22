@@ -73,9 +73,9 @@ public class Main {
         	boolean savedList = testManager.saveVehicleList();
         	System.out.println("List saved: " + savedList);
 
-        	// Check a specific type
-        	boolean isCarType = testManager.isVehicleType(testCar, Car.class); // Please public this method if need to test
-        	System.out.println("Is testCar a Car: " + isCarType);
+//        	// Check a specific type
+//        	boolean isCarType = testManager.isVehicleType(testCar, Car.class); // Please public this method if need to test
+//        	System.out.println("Is testCar a Car: " + isCarType);
 
         	// Check number of truck type
         	int numberOfTrucks = testManager.getNumberOfVehichlesByType(Truck.class);

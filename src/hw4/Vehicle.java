@@ -1,5 +1,6 @@
 package hw4;
 import java.time.LocalDate;
+import java.util.Objects;
 
 
 public abstract class Vehicle {
@@ -109,7 +110,21 @@ public abstract class Vehicle {
 	}
 
 
-
+	@Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Vehicle other = (Vehicle) obj;
+        
+     
+        return Objects.equals(this.brand, other.brand) &&
+               Objects.equals(this.make, other.make) &&
+               Objects.equals(this.modelYear, other.modelYear);
+    }
 
 
 
