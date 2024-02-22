@@ -263,7 +263,31 @@ public class VehicleManager {
 	 * @return Vehicle
 	 */
 	public Vehicle getVehicleWithLowestMaintenanceCost(double distance){
-			
+		ArrayList<Vehicle> duplicates = new ArrayList<Vehicle>();
+		double maintenanceCost;
+		
+		Vehicle vehicleWithLowestCost = vehicleList.get(0);
+		double lowestCost = vehicleWithHighestCost.calculateMaintenanceCost(distance);
+		
+		for (Vehicle vehicle : vehicleList) {
+			maintenanceCost = vehicle.calculateMaintenanceCost(distance);
+			if (maintenanceCost < lowestCost) {
+				lowestCost = maintenanceCost;
+				vehicleWithLowestCost = vehicle;
+				duplicates.clear(); // New lowestCost founded, so clear old arrayList
+			}
+			else if (maintenanceCost == lowestCost) {
+				duplicates.add(vehicle);
+			}
+		}
+		
+		if (duplicates.isEmpty()) { // Means only 1 Vehicle with lowestCost
+			return vehicleWithLowestCost;
+		}
+		else { // Return random vehicle in list of Vehicles with same lowestCost
+			int randomIndex = randomNum.nextInt(duplicates.size());
+			return duplicates.get(randomIndex);
+		}			
 	}	
 	
 	
