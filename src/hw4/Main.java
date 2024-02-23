@@ -8,7 +8,9 @@ public class Main {
 		
 		VehicleManager testManager = VehicleManager.getInstance(); //create an instance of VehicleManager
 		
-		
+		// Create some monsters truck and car
+		Car testCar = new Car("Toyota", "Camry", 2020, 30000, 25.5, 4, 15.0, 1500.0, VehicleColor.BLUE, FuelType.GASOLINE, StartMechanism.KEYSTART);
+        	Truck testTruck = new Truck("Ford", "F-150", 2019, 35000, 20.0, 6, 20.0, 2000.0, VehicleColor.RED, FuelType.DIESEL, StartMechanism.PUSHSTART);
 		boolean initialize;
 		boolean save;
 		initialize = testManager.initializeStock();
@@ -54,6 +56,34 @@ public class Main {
 		// Test all display functions
 		System.out.println("\n\nPrinting all cars:");
 		testManager.displayAllCarInformation();
+
+		//Thomas 
+		// Add vehicles
+        	boolean addedCar = testManager.addVehicle(testCar);
+        	System.out.println("Car added is: " + addedCar);
+
+        	boolean addedTruck = testManager.addVehicle(testTruck);
+        	System.out.println("Truck added is: " + addedTruck);
+
+        	// Remove vehicle
+        	boolean removedCar = testManager.removeVehicle(testCar);
+        	System.out.println("Car removed is: " + removedCar);
+
+        	// Save vehicle list
+        	boolean savedList = testManager.saveVehicleList();
+        	System.out.println("List saved: " + savedList);
+
+        	// Check a specific type
+        	boolean isCarType = testManager.isVehicleType(testCar, Car.class); // Please public this method if need to test
+        	System.out.println("Is testCar a Car: " + isCarType);
+
+        	// Check number of truck type
+        	int numberOfTrucks = testManager.getNumberOfVehichlesByType(Truck.class);
+        	System.out.println("Number of Trucks: " + numberOfTrucks);
+        
+        	// Display all 
+        	testManager.displayAllVehicleInformation();
+    
 		
 	}
 
