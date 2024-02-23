@@ -161,6 +161,7 @@ public class VehicleManager {
 		}
 	}
 	
+	
 	//Display all Trucks or error message if none
 	public void displayAllTruckInformation() {
 		boolean truckFound = false;
@@ -225,50 +226,48 @@ public class VehicleManager {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	//General
 	
-	public boolean removeVehicle(Vehicle vehicle) {
-		// Do something
-		return false;
+	public boolean removeVehicle(Vehicle vehicle) { // Similar to the last assignment
+		return vehicleList.remove(vehicle);
 		
 	}
 	
 	
-	public boolean addVehicle(Vehicle vehicle) {
-		// Do something
-		return false;	
+	public boolean addVehicle(Vehicle vehicle) { //Easy pie
+		return vehicleList.add(vehicle);
 	}
+
+	public boolean saveVehicleList() {
+        	try (FileWriter writer = new FileWriter(inventoryFilePath, false)) {
+            		writer.write("Type,Brand,Make,ModelYear,Price,Color,FuelType,Mileage,Mass,Cylinders,GasTankCapacity,StartType\n");
+            	for (Vehicle vehicle : vehicleList) {
+                	writer.write(vehicle.toCSVString() + "\n");
+            	}
+            		return true;
+        	} catch (IOException e) {
+            		e.printStackTrace();
+            		return false;
+        	}
+    	}
 	
 	
 	
 	private boolean isVehicleType(Vehicle v, Class clazz) {
-		// Do something
-		return false;
+		return clazz.isInstance(v);
 	}
-	
-	
-	
-	
-	
-	
 	
 	//Vehicle Search
 	public int getNumberOfVehichlesByType(Class clazz){
-		// Do something
-		return -1;
-	}
+		int count = 0;
+        	for (Vehicle vehicle : vehicleList) {
+            		if (isVehicleType(vehicle, clazz)) {
+                		count++;
+            		}
+        	}
+        	return count;
+    	}
+	
 	
 	
 	
